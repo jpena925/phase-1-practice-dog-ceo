@@ -59,14 +59,16 @@ function dropdownFunction() {
     selectDropdown.addEventListener('change', e => {
         const letter = e.target.value
         const length = document.querySelector('ul').childElementCount
-        console.log(length)
         for(i = 0; i < length; i++) {
             const dogsWithLetter = document.querySelectorAll('li')[i].textContent[0]
+            if(document.querySelectorAll('li')[i].style.display === 'none'){
+                document.querySelectorAll('li')[i].removeAttribute('style')
+            }
             if (dogsWithLetter !== letter) {
                 document.querySelectorAll('li')[i].style.display = 'none'
             }
         }
         
 
-    })
+    }) 
 }
